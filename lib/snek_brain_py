@@ -1,0 +1,56 @@
+# display
+
+print("Welcome to Snek")
+print("Instructions:")
+print("1.Choose 's' for snek, 'w' for water, 'g' for gun")
+print("2.PC will also choose if snek, water or gun")
+print("3.Snek will beat Water\nWater will beat Gun\nGun will beat Snek.")
+print("4.Most wins will win the game. Losers will die")
+print("5.Enjoy!")
+i = int(input("How many times do you want to play?"))
+
+# a = character for user b = character for CPU
+# c = score for user     d = score for CPU
+# e = how many times you will play the game
+
+d = 0
+e = 1
+c = 0
+
+while(e<=i):
+    a = input("Select s for snek, w for water, g for gun\n")
+    while a!='s' and a!='w' and a!='g':
+        print("Invalid input")
+        a = input("select s for snake, w for water, g for gun\n")
+
+    import random
+    data=["s","w","g"]
+    b = random.choice(data)
+    print("CPU selected =",b)
+    if a==b:
+        pass
+    elif a=="s" and b=="w":
+        c+=1
+    elif a=="s" and b=="g":
+        d+=1
+    elif a=="w" and b=="g":
+        c+=1
+    elif a=="w" and b=="s":
+        d+=1
+    elif a=="g" and b=="s":
+        c+=1
+    elif a=="g" and b=="w":
+        d+=1
+    e+=1
+print("Your score is: ",c)
+print("CPU score is: ",d)
+print("Draws: ",str(i-(c+d)))
+if (c>d):
+    print("You win!")
+    print(3*"\U0001f604")
+elif c==d:
+    print("Draw")
+    print(3*"\U0001f610")
+else:
+    print("You have died!")
+    print(3*"\U0001f644")
